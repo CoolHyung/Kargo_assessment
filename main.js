@@ -1,4 +1,3 @@
-var rand = [5, 32, 123, 0];
 
 function convert(arr){
 
@@ -10,10 +9,9 @@ function convert(arr){
         wordform = '';
         if (n==0){
             wordform = change(n);
-
         }
+
         while (n!=0) {
-            
             var val = n % 10;
             n = (n- (n%10)) / 10;
             //console.log(n);
@@ -30,5 +28,8 @@ function change(num){
     var numbers = ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine'];
     return numbers[num];
 }
-var answer = convert(rand);
+
+
+var userinput = process.argv.slice(2);
+var answer = convert(userinput);
 console.log(answer.join());
