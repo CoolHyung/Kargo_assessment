@@ -1,6 +1,5 @@
-var rand = [5, 32, 123];
 
-function express(arr){
+function convert(arr){
 
     var ans = []; //this is the answer that will be returned later
     var wordform; //the word that has been translated to from the number in the list
@@ -8,11 +7,14 @@ function express(arr){
     for (var i = 0; i < arr.length; i++) {
         var n = arr[i];
         wordform = '';
+        if (n==0){
+            wordform = change(n);
+        }
+
         while (n!=0) {
-            
             var val = n % 10;
             n = (n- (n%10)) / 10;
-            console.log(n);
+            //console.log(n);
             wordform = change(val) + wordform;
         }
 
@@ -27,4 +29,7 @@ function change(num){
     return numbers[num];
 }
 
-console.log(express(rand));
+
+var userinput = process.argv.slice(2);
+var answer = convert(userinput);
+console.log(answer.join());
